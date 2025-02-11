@@ -1,7 +1,5 @@
 extends MainLoop
 
-const Coverage = preload("./coverage.gd")
-
 var _quit := false
 var _exit_code := 0
 
@@ -20,12 +18,12 @@ func _print_usage():
 
 
 func _initialize():
-	var coverage := Coverage.new(self)
+	var coverage := TestCoverage.new(self)
 	var args := Array(OS.get_cmdline_args())
 	var coverage_target := INF
 	var file_target := INF
 	var output_filename := ""
-	var verbosity: int = Coverage.Verbosity.FAILING_FILES
+	var verbosity: int = TestCoverage.Verbosity.FAILING_FILES
 	while len(args) && args[0].begins_with("-"):
 		var flag = args.pop_front()
 		match flag:

@@ -1,4 +1,4 @@
-class_name Coverage
+class_name TestCoverage
 extends RefCounted
 
 # verbosity levels:
@@ -20,7 +20,7 @@ var _autoloads_instrumented := false
 var _coverage_target_file := INF
 var _coverage_target_total := INF
 
-static var instance: Coverage
+static var instance: TestCoverage
 
 
 class ScriptCoverage:
@@ -427,7 +427,7 @@ class ScriptCoverageCollector:
 # this is a placeholder class for when we've finalized and don't want coverage anymore
 # some scripts will continue to be instrumented so we must have something to accept all these calls
 class NullCoverage:
-	extends Coverage
+	extends TestCoverage
 
 	var coverage_queue = []
 
